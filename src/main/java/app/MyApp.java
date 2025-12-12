@@ -53,9 +53,9 @@ public class MyApp extends javax.swing.JFrame {
         txtNim.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNim.setText("24090093");
         txtNim.setPreferredSize(new java.awt.Dimension(200, 25));
-        txtNim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNimActionPerformed(evt);
+        txtNim.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNimMouseClicked(evt);
             }
         });
         txtNim.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -67,6 +67,11 @@ public class MyApp extends javax.swing.JFrame {
         txtNama.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNama.setText("FAJAR ABDUL AZIZ");
         txtNama.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtNama.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNamaMouseClicked(evt);
+            }
+        });
         txtNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNamaActionPerformed(evt);
@@ -76,6 +81,11 @@ public class MyApp extends javax.swing.JFrame {
         txtAngkatan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtAngkatan.setText("2024");
         txtAngkatan.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtAngkatan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAngkatanMouseClicked(evt);
+            }
+        });
         txtAngkatan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAngkatanActionPerformed(evt);
@@ -108,13 +118,10 @@ public class MyApp extends javax.swing.JFrame {
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"", null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3"
             }
         ));
         jScrollPane1.setViewportView(tblData);
@@ -168,10 +175,6 @@ public class MyApp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNimActionPerformed
-
     private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNamaActionPerformed
@@ -193,6 +196,19 @@ public class MyApp extends javax.swing.JFrame {
     private void txtAngkatanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngkatanKeyTyped
         hanyaAngka(evt, txtAngkatan, 4);        // TODO add your handling code here:
     }//GEN-LAST:event_txtAngkatanKeyTyped
+
+    private void txtNimMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNimMouseClicked
+        txtNim.setText("");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNimMouseClicked
+
+    private void txtNamaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNamaMouseClicked
+        txtNama.setText("");        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNamaMouseClicked
+
+    private void txtAngkatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAngkatanMouseClicked
+        txtAngkatan.setText("");        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAngkatanMouseClicked
 
     /**
      * @param args the command line arguments
@@ -255,7 +271,7 @@ private void aturModelTabel() {
         if (!Character.isDigit(c)) {
             e.consume();
         }
-        if (comp.getText().length() >= maxLength){
+        if (comp.getText().length() >= maxLength) {
             e.consume();
         }
     }
